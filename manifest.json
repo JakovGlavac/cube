@@ -1,11 +1,23 @@
 {
-  "name": "cube",
+  "name": "edgar plus plus",
   "version": "1.0",
   "description": "Chrome URL Blocking Extension",
-  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>",
+    "scripting",
+    "activeTab"
+  ],
   "background": {
     "scripts": ["background.js"]
   },
-
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
   "manifest_version": 2
 }
